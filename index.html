@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -6,12 +6,10 @@
   <title>Linux & App Dev</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&family=Roboto:wght@700&display=swap');
-    
+
     body {
-  cursor: url('glove.png'), auto; /* Pretpostavimo da si sliku nazvao glove.png */
-}
-    body {
-      margin: 0; padding: 20px;
+      margin: 0;
+      padding: 20px;
       background-color: #121212;
       color: #ddd;
       font-family: 'Roboto', sans-serif;
@@ -20,6 +18,7 @@
       min-height: 100vh;
       align-items: flex-start;
     }
+
     .container {
       max-width: 900px;
       width: 100%;
@@ -29,10 +28,12 @@
       border-radius: 4px;
       border: 2px solid #b22222;
     }
+
     header {
       text-align: center;
       margin-bottom: 40px;
     }
+
     header h1 {
       font-family: 'Roboto Mono', monospace;
       font-weight: 700;
@@ -43,6 +44,7 @@
       text-transform: uppercase;
       user-select: none;
     }
+
     header p {
       font-weight: 700;
       font-size: 1.2rem;
@@ -50,48 +52,58 @@
       margin-top: 8px;
       letter-spacing: 1.2px;
       user-select: none;
+      text-transform: uppercase;
     }
+
     .tabs {
       display: flex;
       justify-content: center;
-      gap: 30px;
+      gap: 18px;
       margin-bottom: 30px;
       user-select: none;
+      flex-wrap: wrap;
     }
+
     .tab {
-      padding: 14px 30px;
+      padding: 14px 26px;
       font-weight: 700;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       color: #b22222;
       background: transparent;
       border: 2px solid #b22222;
       cursor: pointer;
-      transition: background-color 0.2s, color 0.2s;
+      transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
       text-transform: uppercase;
       border-radius: 2px;
       letter-spacing: 1px;
+      white-space: nowrap;
     }
+
     .tab:hover {
       background-color: #b22222;
       color: #121212;
       box-shadow: 0 0 12px #b22222aa;
     }
+
     .tab.active {
       background-color: #b22222;
       color: #121212;
       box-shadow: 0 0 18px #b22222cc;
       pointer-events: none;
     }
+
     section {
       display: none;
       line-height: 1.6;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       color: #ccc;
     }
+
     section.active {
       display: block;
       animation: fadeIn 0.4s ease forwards;
     }
+
     h2 {
       font-family: 'Roboto Mono', monospace;
       font-weight: 700;
@@ -104,14 +116,17 @@
       text-transform: uppercase;
       user-select: none;
     }
+
     ul {
       padding-left: 20px;
       list-style-type: square;
     }
+
     ul li {
-      margin-bottom: 16px;
-      letter-spacing: 0.5px;
+      margin-bottom: 14px;
+      letter-spacing: 0.3px;
     }
+
     .contact {
       margin-top: 50px;
       text-align: center;
@@ -120,6 +135,7 @@
       color: #b22222;
       user-select: none;
     }
+
     .contact h2 {
       margin-bottom: 20px;
       font-family: 'Roboto Mono', monospace;
@@ -128,142 +144,130 @@
       letter-spacing: 1.2px;
       text-transform: uppercase;
     }
+
     .contact a {
       display: inline-block;
-      margin: 0 18px;
-      padding: 12px 28px;
+      margin: 8px 10px;
+      padding: 12px 22px;
       font-weight: 700;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       color: #121212;
       background-color: #b22222;
       text-decoration: none;
       border-radius: 3px;
-      transition: background-color 0.3s ease, box-shadow 0.3s ease;
-      letter-spacing: 1px;
+      transition: background-color 0.2s ease, box-shadow 0.2s ease;
+      letter-spacing: 0.8px;
       user-select: text;
+      text-transform: uppercase;
     }
+
     .contact a:hover {
       background-color: #7a1616;
       box-shadow: 0 0 15px #7a1616aa;
     }
+
+    /* Slight per-link accents (optional, still fits theme) */
+    .contact a.whatsapp { background-color: #25D366; }
+    .contact a.whatsapp:hover { background-color: #1da851; box-shadow: 0 0 15px rgba(29,168,81,0.45); }
+
+    .contact a.telegram { background-color: #229ED9; }
+    .contact a.telegram:hover { background-color: #1b7fb0; box-shadow: 0 0 15px rgba(27,127,176,0.45); }
+
     @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(10px);}
-      to {opacity: 1; transform: translateY(0);}
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
+
     @media (max-width: 600px) {
-      .container {
-        padding: 30px 25px;
-      }
-      header h1 {
-        font-size: 2.3rem;
-      }
-      header p {
-        font-size: 1rem;
-      }
-      h2 {
-        font-size: 1.5rem;
-      }
-      .tab {
-        font-size: 1rem;
-        padding: 12px 20px;
-      }
+      .container { padding: 30px 25px; }
+      header h1 { font-size: 2.3rem; }
+      header p { font-size: 1rem; }
+      h2 { font-size: 1.5rem; }
+      .tab { font-size: 0.98rem; padding: 12px 18px; }
     }
   </style>
 </head>
-<body>
-  <audio id="punch-sound" src="punch.mp3" preload="auto"></audio>
 
+<body>
   <div class="container">
     <header>
       <h1>PETAR JOVIĆ</h1>
-      <p>LINUX ADMINISTRATOR & WEB DEVELOPER</p>
+      <p>LINUX ADMINISTRATOR • ODOO DEVELOPER • WEB/APP DEV</p>
     </header>
 
     <div class="tabs">
-      <div class="tab active" data-tab="linux">Linux Maintenance</div>
-      <div class="tab" data-tab="web">Web Development</div>
+      <div class="tab active" data-tab="linux">Linux</div>
+      <div class="tab" data-tab="odoo">Odoo</div>
+      <div class="tab" data-tab="web">Web/App</div>
     </div>
 
     <section id="linux" class="active">
-      <h2>LINUX MAINTENANCE, DEPLOYMENT & AUTOMATION</h2>
+      <h2>LINUX OPERATIONS</h2>
       <ul>
-        <li>Installation, configuration, and management of Linux servers (Ubuntu, CentOS, Debian, Arch).</li>
-        <li>Deploy applications (PHP, Node.js, Python) focusing on stability and scalability.</li>
-        <li>Automate tasks using Bash scripts and cron jobs for backups and monitoring.</li>
-        <li>Manage MySQL and PostgreSQL databases, backups, and performance optimization.</li>
-        <li>Setup networking, firewalls (iptables, ufw), and secure VPN connections.</li>
-        <li>Monitor server performance and troubleshoot issues to maximize uptime.</li>
-        <li>Use Docker containers and basic DevOps tools.</li>
-       
+        <li>Provision and maintain Linux servers (Ubuntu/Debian/RHEL-family/Arch) with repeatable, documented setup.</li>
+        <li>Deploy applications (Python/PHP/Node.js) with focus on reliability, observability, and clean rollback paths.</li>
+        <li>Automation via Bash, systemd timers/cron; backup strategies (files + DB) and restore testing.</li>
+        <li>Database operations: PostgreSQL/MySQL (backup/restore, basic tuning, maintenance, troubleshooting).</li>
+        <li>Networking & security: firewalling (nftables/iptables/ufw), SSH hardening, VPN setup, least-privilege access.</li>
+        <li>Incident response: log-driven debugging (journalctl, dmesg), resource analysis, and root-cause notes.</li>
+        <li>Container basics: Docker build/run, volumes, networking; pragmatic usage (not buzzword DevOps).</li>
+      </ul>
+    </section>
+
+    <section id="odoo">
+      <h2>ODOO DEVELOPMENT</h2>
+      <ul>
+        <li>Custom Odoo addons: models, views, security rules, server actions, scheduled jobs.</li>
+        <li>Bugfixing and production support: reproduce → isolate → patch → deploy with minimal downtime.</li>
+        <li>Integrations: REST APIs, webhooks, external services; data imports/exports with validation.</li>
+        <li>PostgreSQL-centric debugging: performance hotspots, slow queries, indexing basics, log inspection.</li>
+        <li>Deployments/upgrades: multi-environment setup, version upgrades, module migrations, controlled rollouts.</li>
+        <li>Code quality: clean modules, consistent naming, minimal side effects, readable diffs.</li>
       </ul>
     </section>
 
     <section id="web">
-      <h2>APP DEVELOPMENT</h2>
+      <h2>WEB / APP DEVELOPMENT</h2>
       <ul>
-        <li>Create responsive websites using HTML5, CSS3, and modern JavaScript (ES6+).</li>
-<li>Use Flexbox and CSS Grid for professional and adaptable layouts.</li>
-<li>Integrate contact forms with client-side validation.</li>
-<li>Optimize SEO and site speed for better user experience.</li>
-<li>Apply UX/UI principles for usability and impactful design.</li>
-<li>Deploy websites on Linux servers via FTP/SCP/Git.</li>
-<li>Utilize CSS frameworks (Bootstrap) and version control (Git).</li>
-<li>Develop cross-platform web applications using React and Flask.</li>
-<li>Build RESTful APIs in Python (Flask) and connect with frontend clients.</li>
-<li>Work with JavaScript, Python, and SQL in full-stack environments.</li>
-<li>Manage state and routing in React apps using modern libraries (Redux, React Router).</li>
-<li>Deploy full-stack apps using cloud services and containerization (Docker).</li>
+        <li>Frontend: HTML5/CSS3/JS (ES6+), responsive layouts (Flexbox/Grid), performance-minded UI.</li>
+        <li>Backend: Python (Flask) REST APIs, authentication patterns, clean request/response contracts.</li>
+        <li>Full-stack: React + API integration, state management and routing (pragmatic choices).</li>
+        <li>Delivery: Git-based deploys (SCP/SSH), environment configs, basic CI habits and repeatable builds.</li>
+        <li>Practical focus: fewer frameworks, more correctness, maintainability, and measurable outcomes.</li>
       </ul>
     </section>
 
     <div class="contact">
       <h2>CONTACT</h2>
-       <a href="https://mail.google.com/mail/?view=cm&fs=1&to=jovicpetarteam@gmail.com" target="_blank" rel="noopener noreferrer">email </a>
-      <a href="https://wa.me/+38640603639" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-         
+
+      <a class="email"
+         href="https://mail.google.com/mail/?view=cm&fs=1&to=jovicpetarteam@gmail.com"
+         target="_blank" rel="noopener noreferrer">Email</a>
+
+      <a class="whatsapp"
+         href="https://wa.me/38640603639"
+         target="_blank" rel="noopener noreferrer">WhatsApp</a>
+
+      <a class="telegram"
+         href="https://t.me/muaythaiartist"
+         target="_blank" rel="noopener noreferrer">Telegram</a>
     </div>
   </div>
 
   <script>
     const tabs = document.querySelectorAll('.tab');
     const sections = document.querySelectorAll('section');
+
     tabs.forEach(tab => {
       tab.addEventListener('click', () => {
         tabs.forEach(t => t.classList.remove('active'));
         sections.forEach(s => s.classList.remove('active'));
+
         tab.classList.add('active');
-        document.getElementById(tab.dataset.tab).classList.add('active');
+        const target = document.getElementById(tab.dataset.tab);
+        if (target) target.classList.add('active');
       });
     });
   </script>
-  <script>
-  const punch = document.getElementById('punch-sound');
-
-  document.body.addEventListener('click', e => {
-    punch.currentTime = 0;
-    punch.play();
-
-    const glove = document.createElement('div');
-    glove.innerText = '🥊';
-    glove.style.position = 'absolute';
-    glove.style.left = e.pageX + 'px';
-    glove.style.top = e.pageY + 'px';
-    glove.style.fontSize = '40px';
-    glove.style.animation = 'punchAnim 0.4s ease-out forwards';
-    document.body.appendChild(glove);
-
-    setTimeout(() => glove.remove(), 400);
-  });
-
-  const style = document.createElement('style');
-  style.innerHTML = `
-    @keyframes punchAnim {
-      0% { transform: scale(1); opacity: 1; }
-      100% { transform: scale(2.2); opacity: 0; }
-    }
-  `;
-  document.head.appendChild(style);
-</script>
 </body>
 </html>
-
